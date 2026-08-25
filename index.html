@@ -101,6 +101,11 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif
 .day[aria-pressed="true"] .dn{color:var(--surface)}
 .day[aria-pressed="true"] .dw{color:var(--surface);opacity:.75}
 .day[aria-pressed="true"] .bar{background:rgba(255,255,255,.22)}
+.day.lock::after{content:"chiusa";display:block;margin-top:4px;
+  font:600 8px/1 "Barlow Condensed",Arial,sans-serif;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3)}
+.day.lock{background:var(--surface-2)}
+.day[aria-pressed="true"].lock::after{color:rgba(255,255,255,.65)}
 .day.full::after{content:"compilato";display:block;margin-top:4px;
   font:600 8px/1 "Barlow Condensed",Arial,sans-serif;letter-spacing:.09em;
   text-transform:uppercase;color:var(--ok)}
@@ -183,6 +188,26 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif
   background:var(--accent-ink);color:var(--accent);font:600 13px/1 "Barlow Condensed",Arial,sans-serif;
   letter-spacing:.11em;text-transform:uppercase}
 .savebar button[disabled]{opacity:.55;cursor:default}
+.chiusa-nota{margin:10px 0 2px;padding:10px 12px;border-radius:var(--r);
+  background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2);font-size:12.5px;
+  line-height:1.4}
+.chiusa-nota b{color:var(--ink)}
+.toolbar button.chiudi{border-color:var(--ink);background:var(--ink);color:var(--surface)}
+.chiudibox{display:inline-flex;gap:6px;align-items:center}
+.chiudibox input{width:120px;font:inherit;font-size:13px;color:var(--ink);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:7px;padding:8px 9px}
+.chiudibox input.manca{border-color:var(--ko);background:var(--ko-bg)}
+.chiudibox input:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+.chiudi-no{font-size:11px;color:var(--ink-3);align-self:center}
+.detail.bloccato p{margin:2px 0 0;font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.detail.bloccato>div{padding-left:9px;border-left:2px solid var(--line-soft)}
+.detail.bloccato>div:has(input){border-left:0;padding-left:0}
+.recdone{appearance:none;cursor:pointer;width:100%;font:600 11px/1 "Barlow Condensed",Arial,sans-serif;
+  letter-spacing:.09em;text-transform:uppercase;padding:10px;border-radius:7px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink-2)}
+.recdone.on{border-color:var(--ok);background:var(--ok);color:#fff}
+:root[data-theme="dark"] .recdone.on,:root:not([data-theme="light"]) .recdone.on{color:var(--accent-ink)}
+.seg button[disabled]{opacity:.42;cursor:default}
 .alert{display:block;width:100%;text-align:left;appearance:none;cursor:pointer;
   margin:10px 0 2px;padding:11px 13px;border-radius:var(--r);border:1px solid var(--ko);
   background:var(--ko-bg);color:var(--ko);font:600 12.5px/1.35 "IBM Plex Sans",sans-serif}
@@ -190,7 +215,27 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:70;
   background:var(--ok);color:#fff;border-radius:20px;padding:9px 18px;font-size:12.5px;
   box-shadow:0 6px 20px rgba(0,0,0,.22);max-width:92vw;text-align:center}
-:root[data-theme="dark"] .toast,:root:not([data-theme="light"]) .alert{display:block;width:100%;text-align:left;appearance:none;cursor:pointer;
+:root[data-theme="dark"] .toast,:root:not([data-theme="light"]) .chiusa-nota{margin:10px 0 2px;padding:10px 12px;border-radius:var(--r);
+  background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2);font-size:12.5px;
+  line-height:1.4}
+.chiusa-nota b{color:var(--ink)}
+.toolbar button.chiudi{border-color:var(--ink);background:var(--ink);color:var(--surface)}
+.chiudibox{display:inline-flex;gap:6px;align-items:center}
+.chiudibox input{width:120px;font:inherit;font-size:13px;color:var(--ink);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:7px;padding:8px 9px}
+.chiudibox input.manca{border-color:var(--ko);background:var(--ko-bg)}
+.chiudibox input:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+.chiudi-no{font-size:11px;color:var(--ink-3);align-self:center}
+.detail.bloccato p{margin:2px 0 0;font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.detail.bloccato>div{padding-left:9px;border-left:2px solid var(--line-soft)}
+.detail.bloccato>div:has(input){border-left:0;padding-left:0}
+.recdone{appearance:none;cursor:pointer;width:100%;font:600 11px/1 "Barlow Condensed",Arial,sans-serif;
+  letter-spacing:.09em;text-transform:uppercase;padding:10px;border-radius:7px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink-2)}
+.recdone.on{border-color:var(--ok);background:var(--ok);color:#fff}
+:root[data-theme="dark"] .recdone.on,:root:not([data-theme="light"]) .recdone.on{color:var(--accent-ink)}
+.seg button[disabled]{opacity:.42;cursor:default}
+.alert{display:block;width:100%;text-align:left;appearance:none;cursor:pointer;
   margin:10px 0 2px;padding:11px 13px;border-radius:var(--r);border:1px solid var(--ko);
   background:var(--ko-bg);color:var(--ko);font:600 12.5px/1.35 "IBM Plex Sans",sans-serif}
 .alert:focus-visible{outline:2px solid var(--ko);outline-offset:2px}
@@ -280,13 +325,66 @@ table.data td:first-child{font-family:"IBM Plex Sans",sans-serif}
   .crow{grid-template-columns:56px 1fr 40px}
 }
 
+/* ---------- materiale nella riga ---------- */
+.matbox{margin-top:10px;padding-top:9px;border-top:1px dashed var(--line)}
+.matlab{display:block;font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:6px}
+.matseg{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.matseg button{appearance:none;cursor:pointer;font:600 10px/1.15 "Barlow Condensed",Arial,sans-serif;
+  letter-spacing:.06em;text-transform:uppercase;padding:8px 3px;border-radius:6px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink-2)}
+.matseg button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.matseg button[aria-pressed="true"]{color:#fff;border-color:transparent}
+:root[data-theme="dark"] .matseg button[aria-pressed="true"],
+:root:not([data-theme="light"]) .matseg button[aria-pressed="true"]{color:var(--accent-ink)}
+.matseg button.m-ok[aria-pressed="true"]{background:var(--ok)}
+.matseg button.m-arr[aria-pressed="true"]{background:var(--part)}
+.matseg button.m-no[aria-pressed="true"]{background:var(--ko)}
+.matseg button.m-na[aria-pressed="true"]{background:var(--idle)}
+.matnote{margin:8px 0 0;font-size:12.5px;color:var(--ink-3)}
+.detail .due{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.detail input[type="text"],.detail input:not([type]){width:100%;font:inherit;font-size:13.5px;
+  color:var(--ink);background:var(--surface-2);border:1px solid var(--line);
+  border-radius:7px;padding:8px 9px}
+.detail input:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+.rdanum{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0 2px;
+  padding:11px 12px;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:var(--r);box-shadow:var(--shadow)}
+.rdanum label{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.rdanum input{flex:1 1 90px;min-width:80px;font:inherit;font-size:14px;font-family:"IBM Plex Mono",monospace;
+  color:var(--ink);background:var(--surface-2);border:1px solid var(--line);
+  border-radius:7px;padding:7px 9px}
+.rdanum input:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+.rdanum button{appearance:none;cursor:pointer;font:600 11px/1 "Barlow Condensed",Arial,sans-serif;
+  letter-spacing:.09em;text-transform:uppercase;padding:10px 14px;border-radius:7px;
+  border:1px solid var(--ko);background:var(--ko);color:#fff}
+:root[data-theme="dark"] .rdanum button,:root:not([data-theme="light"]) .rdanum button{color:var(--accent-ink)}
+.rdabtn{appearance:none;cursor:pointer;width:100%;margin-top:2px;
+  font:600 11.5px/1 "Barlow Condensed",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;
+  padding:11px;border-radius:7px;border:1px solid var(--ko);background:var(--ko);color:#fff}
+:root[data-theme="dark"] .rdabtn,:root:not([data-theme="light"]) .rdanum{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0 2px;
+  padding:11px 12px;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:var(--r);box-shadow:var(--shadow)}
+.rdanum label{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.rdanum input{flex:1 1 90px;min-width:80px;font:inherit;font-size:14px;font-family:"IBM Plex Mono",monospace;
+  color:var(--ink);background:var(--surface-2);border:1px solid var(--line);
+  border-radius:7px;padding:7px 9px}
+.rdanum input:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+.rdanum button{appearance:none;cursor:pointer;font:600 11px/1 "Barlow Condensed",Arial,sans-serif;
+  letter-spacing:.09em;text-transform:uppercase;padding:10px 14px;border-radius:7px;
+  border:1px solid var(--ko);background:var(--ko);color:#fff}
+:root[data-theme="dark"] .rdanum button,:root:not([data-theme="light"]) .rdanum button{color:var(--accent-ink)}
+.rdabtn{color:var(--accent-ink)}
+.rdabtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
 /* ---------- report stampabile ---------- */
-#report{display:none}
+#report,#rda{display:none}
 @media print{
   @page{size:A4 landscape;margin:12mm}
   body{background:#fff;color:#111;font-size:10pt}
   .top,.wrap,.savebar,.toast,.alert{display:none !important}
   #report{display:block;max-width:none;padding:0}
+  body.print-rda #report{display:none !important}
   #report .rhead{display:flex;align-items:flex-start;justify-content:space-between;
     border-bottom:2px solid #14403C;padding-bottom:8px;margin-bottom:14px}
   #report h1{font-family:"Barlow Condensed",Arial,sans-serif;font-size:19pt;text-transform:uppercase;
@@ -312,21 +410,70 @@ table.data td:first-child{font-family:"IBM Plex Sans",sans-serif}
   #report .rfirme div{flex:1;border-top:1px solid #999;padding-top:4px}
   #report .rfoot{margin-top:8mm;font-size:7.5pt;color:#777;border-top:1px solid #DDD;padding-top:4px}
 }
+
+@media print{
+  body.print-rda{font-size:9.5pt}
+  body.print-rda #rda{display:block}
+  #rda .rdahead{border-bottom:2px solid #14403C;padding-bottom:7px;margin-bottom:10px}
+  #rda h1{font-family:"Barlow Condensed",Arial,sans-serif;font-size:20pt;text-transform:uppercase;
+    letter-spacing:.03em;color:#14403C;margin:0}
+  #rda .rdahead p{margin:2px 0 0;font-size:9pt;letter-spacing:.14em;text-transform:uppercase;color:#555}
+  #rda .rdatop{display:grid;grid-template-columns:repeat(3,1fr);gap:0 14px;margin-bottom:10px}
+  #rda .rf{display:flex;gap:6px;align-items:baseline;border-bottom:1px dotted #BBB;padding:3px 0}
+  #rda .rf span{font-size:7.5pt;text-transform:uppercase;letter-spacing:.08em;color:#666;
+    min-width:34mm}
+  #rda .rf b{font-size:10pt;font-weight:600}
+  #rda .rdaind{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
+  #rda .rdaind h2{font-family:"Barlow Condensed",Arial,sans-serif;font-size:9.5pt;
+    text-transform:uppercase;letter-spacing:.08em;color:#14403C;margin:0 0 3px;
+    border-bottom:1px solid #DDD;padding-bottom:2px}
+  #rda .rdaind p{margin:0;font-size:9.5pt;line-height:1.35}
+  #rda table.rdatab{width:100%;border-collapse:collapse;font-size:9pt}
+  #rda .rdatab th{background:#EDEFEA;border:1px solid #B9C0BA;padding:4px 5px;text-align:left;
+    font-family:"Barlow Condensed",Arial,sans-serif;font-size:8pt;text-transform:uppercase;
+    letter-spacing:.06em}
+  #rda .rdatab td{border:1px solid #CFD5D0;padding:3px 5px;height:5.6mm;vertical-align:top}
+  #rda .rdatab td:nth-child(1){width:14mm}
+  #rda .rdatab td:nth-child(3){width:16mm}
+  #rda .rdatab td:nth-child(4),#rda .rdatab td:nth-child(5),
+  #rda .rdatab td:nth-child(6),#rda .rdatab td:nth-child(7){width:18mm;text-align:right}
+  #rda .rdafirme{display:flex;gap:30mm;margin-top:7mm;font-size:9pt;color:#444;
+    page-break-inside:avoid}
+  #rda .rdafirme div{flex:1;border-top:1px solid #999;padding-top:3px}
+  #rda .rdaris{margin-top:6mm;border:1px solid #CFD5D0;padding:5px 8px;page-break-inside:avoid}
+  #rda .rdaris h2{font-family:"Barlow Condensed",Arial,sans-serif;font-size:9pt;
+    text-transform:uppercase;letter-spacing:.09em;color:#555;margin:0 0 5px}
+  #rda .rdaris div{display:flex;gap:14mm;font-size:8.5pt;color:#777}
+  #rda .rdaris div span{flex:1;border-bottom:1px solid #CCC;padding-bottom:6mm}
+  #rda .rdaris p{margin:4mm 0 0;font-size:8.5pt;color:#777}
+}
 </style>
 <div id="app"></div>
 <script id="sync-config">
 /* ====== CONFIGURAZIONE DEL CANTIERE ============================
-   cantiere : chiave univoca, minuscolo e senza spazi. DEVE essere
-              la stessa scritta nella riga della tabella su Supabase.
+   cantiere : chiave univoca, uguale a quella della riga su Supabase
    nome     : come appare in cima alla pagina e sui report
-   url/key  : progetto Supabase (uguali per tutti i cantieri)
+   rda      : dati fissi del modulo di richiesta acquisto
    ============================================================== */
 window.SUVERA_SYNC = {
   cantiere: "badia",
   nome:     "Badia di Orvieto",
   luogo:    "Orvieto",
   url:      "https://yavlfpvnchkjobtywqkh.supabase.co",
-  key:      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlhdmxmcHZuY2hram9idHl3cWtoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc2MzU5MjIsImV4cCI6MjEwMzIxMTkyMn0.c59JIgkMoT2Fm7cH5dFRLyDT6-r6voNE9cSHnAZczHg"
+  key:      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlhdmxmcHZuY2hram9idHl3cWtoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc2MzU5MjIsImV4cCI6MjEwMzIxMTkyMn0.c59JIgkMoT2Fm7cH5dFRLyDT6-r6voNE9cSHnAZczHg",
+  rda: {
+    numero:              "",
+    mezzo:               "e-mail",
+    commessa:            "4-578-26",
+    responsabile:        "Andrea Petrillo",
+    recapito:            "",
+    richiedente:         "",
+    priorita:            "Normale",
+    indirizzo:           "Localita' Badia, 8",
+    citta:               "Orvieto (TR)",
+    consegna_indirizzo:  "Localita' Badia, 8",
+    consegna_citta:      "Orvieto (TR)",
+  }
 };
 </script>
 <script id="state" type="application/json">{"days":["2026-08-31","2026-09-01","2026-09-02","2026-09-03","2026-09-04","2026-09-05","2026-09-06","2026-09-07","2026-09-08","2026-09-09","2026-09-10","2026-09-11","2026-09-12","2026-09-13"],"dit":["RICCI SPA","TOTA SRL","EDIL KODRA","BIAGIOLI","RR","CM"],"ope":["RICCI SPA","TOTA SRL","EDIL KODRA","BIAGIOLI","RR","CM"],"squ":["CANTIERIZZAZIONE","BADIA EST","CORPO CENTRALE","EX CHIOSTRO"],"att":["ASSISTENZA CANTIERE","Restauro preliminare facciate","Rifacimento copertura in coppi","Montaggio ponteggi","Pacchetto sottopavimentazioni","Demolizione pareti interne scannafosso","Demolizione, rifacimento e trattamenti pavimenti","Montaggio ponteggi zona a valle","Impianto scarichi verticali e orizzontali"],"zon":["AREE TOTALI","BADIA EST ESTERNO","TETTO","CORPO PRINCIPALE PT","EX CHIOSTRO","PACCHETTO SOTTOPAVIMENTAZIONI","CAMERA CAMPIONE"],"rows":[["B0001",0,0,0,0,0,0,"","","","","",""],["B0002",0,0,0,1,1,1,"","","","","",""],["B0003",0,1,1,1,2,2,"","","","","",""],["B0004",0,2,2,2,3,3,"","","","","",""],["B0005",0,1,1,3,2,4,"","","","","",""],["B0006",1,0,0,0,0,0,"","","","","",""],["B0007",1,0,0,1,1,1,"","","","","",""],["B0008",1,1,1,1,2,2,"","","","","",""],["B0009",1,2,2,2,3,3,"","","","","",""],["B0010",1,1,1,3,2,4,"","","","","",""],["B0011",2,0,0,0,0,0,"","","","","",""],["B0012",2,0,0,1,1,1,"","","","","",""],["B0013",2,1,1,1,2,2,"","","","","",""],["B0014",2,2,2,2,3,3,"","","","","",""],["B0015",2,1,1,3,2,4,"","","","","",""],["B0016",3,0,0,0,0,0,"","","","","",""],["B0017",3,0,0,1,1,1,"","","","","",""],["B0018",3,1,1,1,2,2,"","","","","",""],["B0019",3,2,2,2,3,3,"","","","","",""],["B0020",3,1,1,3,2,4,"","","","","",""],["B0021",4,0,0,0,0,0,"","","","","",""],["B0022",4,0,0,1,1,1,"","","","","",""],["B0023",4,1,1,1,2,2,"","","","","",""],["B0024",4,2,2,2,3,3,"","","","","",""],["B0025",4,1,1,3,2,4,"","","","","",""],["B0026",5,0,0,0,0,0,"","","","","",""],["B0027",5,0,0,1,1,1,"","","","","",""],["B0028",7,0,0,0,0,0,"","","","","",""],["B0029",7,0,0,1,1,1,"","","","","",""],["B0030",7,3,3,1,4,5,"","","","","",""],["B0031",7,3,3,2,5,6,"","","","","",""],["B0032",7,4,4,2,6,6,"","","","","",""],["B0033",7,2,2,2,3,3,"","","","","",""],["B0034",7,0,0,2,1,3,"","","","","",""],["B0035",7,2,2,3,7,4,"","","","","",""],["B0036",7,1,1,3,2,4,"","","","","",""],["B0037",8,0,0,0,0,0,"","","","","",""],["B0038",8,0,0,1,1,1,"","","","","",""],["B0039",8,3,3,1,4,5,"","","","","",""],["B0040",8,3,3,2,5,6,"","","","","",""],["B0041",8,4,4,2,6,6,"","","","","",""],["B0042",8,2,2,2,3,3,"","","","","",""],["B0043",8,0,0,2,1,3,"","","","","",""],["B0044",8,2,2,3,7,4,"","","","","",""],["B0045",8,1,1,3,2,4,"","","","","",""],["B0046",9,0,0,0,0,0,"","","","","",""],["B0047",9,0,0,1,1,1,"","","","","",""],["B0048",9,3,3,1,4,5,"","","","","",""],["B0049",9,3,3,2,5,6,"","","","","",""],["B0050",9,4,4,2,6,6,"","","","","",""],["B0051",9,2,2,2,3,3,"","","","","",""],["B0052",9,0,0,2,1,3,"","","","","",""],["B0053",9,2,2,3,7,4,"","","","","",""],["B0054",9,1,1,3,2,4,"","","","","",""],["B0055",10,0,0,0,0,0,"","","","","",""],["B0056",10,0,0,1,1,1,"","","","","",""],["B0057",10,3,3,1,4,5,"","","","","",""],["B0058",10,3,3,2,5,6,"","","","","",""],["B0059",10,4,4,2,6,6,"","","","","",""],["B0060",10,5,5,2,8,3,"","","","","",""],["B0061",10,2,2,2,3,3,"","","","","",""],["B0062",10,0,0,2,1,3,"","","","","",""],["B0063",10,2,2,3,7,4,"","","","","",""],["B0064",10,1,1,3,2,4,"","","","","",""],["B0065",11,0,0,0,0,0,"","","","","",""],["B0066",11,0,0,1,1,1,"","","","","",""],["B0067",11,3,3,1,4,5,"","","","","",""],["B0068",11,3,3,2,5,6,"","","","","",""],["B0069",11,4,4,2,6,6,"","","","","",""],["B0070",11,5,5,2,8,3,"","","","","",""],["B0071",11,2,2,2,3,3,"","","","","",""],["B0072",11,0,0,2,1,3,"","","","","",""],["B0073",11,2,2,3,7,4,"","","","","",""],["B0074",11,1,1,3,2,4,"","","","","",""]],"issues":[],"rev":1}</script>
@@ -343,11 +490,26 @@ window.SUVERA_SYNC = {
   var CANTIERE = CFG.cantiere || "suvera";
   var NOME = CFG.nome || "La Suvera";
   var LUOGO = CFG.luogo || "Pievescola";
+  var RDA = CFG.rda || {};   // dati fissi del modulo richiesta di acquisto
   var SY = {
     on: !!(CFG.url && CFG.key), rev: 0, busy: false, pending: false,
-    touched: {}, lastOk: 0, state: "attesa", when: ""
+    touched: {}, tMat: {}, tNum: false, lastOk: 0, state: "attesa", when: ""
   };
   var CANTIERI = [];   // elenco per il menu a tendina, letto dall'archivio
+
+  function utente() {
+    try {
+      var m = (location.hash || "").match(/[#&]u=([^&]*)/);
+      return m ? decodeURIComponent(m[1]) : "";
+    } catch (e) { return ""; }
+  }
+  function setUtente(nome) {
+    try {
+      var h = (location.hash || "").replace(/[#&]u=[^&]*/, "").replace(/^#/, "");
+      var nuovo = "u=" + encodeURIComponent(nome) + (h ? "&" + h : "");
+      history.replaceState(null, "", "#" + nuovo);
+    } catch (e) { /* niente */ }
+  }
 
   var GG = ["lun", "mar", "mer", "gio", "ven", "sab", "dom"];
   var GGL = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"];
@@ -359,6 +521,78 @@ window.SUVERA_SYNC = {
   var R = { ID: 0, D: 1, F: 2, O: 3, Q: 4, A: 5, Z: 6, ST: 7, CAT: 8, DESC: 9, AZ: 10,
     RD: 11, RS: 12 };
   S.rows.forEach(function (r) { while (r.length < 13) r.push(""); });
+  if (!S.mat) S.mat = {};                 // { "ditta|attivita|zona": {...} }
+  if (!S.closed) S.closed = {};           // { "2026-08-24": 1 }
+
+  // una giornata e' chiusa se chiusa a mano, o se e' passato piu' di un giorno:
+  // il consuntivo si compila la sera stessa o al massimo la mattina dopo.
+  function chiusa(i) {
+    var d = S.days[i];
+    if (!d) return false;
+    if (S.closed[d]) return true;
+    return giorniDa(d) < -1;
+  }
+  function chiusuraInfo(i) {
+    var v = S.closed[S.days[i]];
+    return (v && typeof v === "object") ? v : null;
+  }
+  function chiudibile(i) {
+    var d = S.days[i];
+    if (!d || S.closed[d]) return false;
+    var g = giorniDa(d);
+    return g <= 0 && g >= -1;
+  }
+
+  var MSTL = { ok: "In cantiere", arr: "In arrivo", no: "Da ordinare", na: "Non serve" };
+
+  var WBS = [
+    ["A01", "COSTI INDIRETTI (Accantieramento, opere provvisionali, assistenze agli impianti, pulizie)"],
+    ["A02", "DEMOLIZIONI - SMANTELLAMENTI E MOVIMENTI DI TERRA - Pali -Micropali- jet"],
+    ["A03", "STRUTTURE (Cemento Armato - Carpenteria metallica pesante - Strutture in lamellare)"],
+    ["A04", "PARTIZIONI INTERNE IN MURATURA E INTONACI"],
+    ["A05", "OPERE IN CARTONGESSO PARTIZIONI INTERNE E CONTROSOFFITTI OGNI GENERE"],
+    ["A06", "IMPERMEABILIZZAZIONI, ISOLAMENTI, MASSETTI, TETTI E COPERTURE"],
+    ["A07", "PAVIMENTI, RIVESTIMENTI, ZOCCOLINI, SOGLIE, COPERTINE (gres, pietra, etc…)"],
+    ["A08", "RASATURE, TINTEGGIATURE E/O CARTA DA PARATI"],
+    ["A09", "SERRAMENTI ESTERNI E FACCIATE VENTILATE E CONTINUE"],
+    ["A10", "SERRAMENTI INTERNI (Porte - Porte REI - Pareti Vetrate ecc…)"],
+    ["A11", "RESTAURO CONSERVATIVO"],
+    ["A12", "OPERE DA FABBRO (cancelli, ringhiere, recinzioni, etc…)"],
+    ["A13", "OPERE DA FALEGNAME"],
+    ["A14", "ASCENSORI"],
+    ["A15", "ARREDI VARI"],
+    ["A16", "URBANIZZAZIONI/SISTEMAZIONI ESTERNE"],
+    ["A17", "INVOLUCRO ESTERNO ( Opere su prospetti - realizzazione cappotti ec…)"],
+    ["B01", "IMPIANTI ELETTRICI e SPECIALI"],
+    ["B02", "IMPIANTI MECCANICI, IDROSANITARI, SANITARI E ANTINCENDIO"],
+    ["B03", "MANODOPERA RICCI SPA"],
+    ["VAR", "VARIANTI - VAR"],
+  ];
+
+
+  function lavKey(r) { return r[R.F] + "|" + r[R.A] + "|" + r[R.Z]; }
+  function mat(r) { return S.mat[lavKey(r)] || null; }
+  function matSet(r, patch) {
+    var k = lavKey(r);
+    SY.tMat[k] = 1;
+    var m = S.mat[k] || {};
+    for (var p in patch) { if (patch[p] === "") delete m[p]; else m[p] = patch[p]; }
+    if (!m.st) delete S.mat[k]; else S.mat[k] = m;
+  }
+  function daOrdinare() {
+    var out = [];
+    Object.keys(S.mat).forEach(function (k) {
+      if (S.mat[k].st === "no") {
+        var r = null;
+        for (var i = 0; i < S.rows.length; i++) {
+          if (lavKey(S.rows[i]) === k) { r = S.rows[i]; break; }
+        }
+        if (r) out.push({ k: k, m: S.mat[k], r: r });
+      }
+    });
+    out.sort(function (a, b) { return (a.m.entro || "9") < (b.m.entro || "9") ? -1 : 1; });
+    return out;
+  }
 
   function oggi() {
     var d = new Date();
@@ -405,7 +639,8 @@ window.SUVERA_SYNC = {
   /* ------------------------------------------------ header */
   function hTop(vuoto) {
     var nsc = scaduti().length;
-    var tabs = [["day", "Giornata"], ["rec", "Recuperi"], ["firm", "Ditte"],
+    var nmat = daOrdinare().length;
+    var tabs = [["day", "Giornata"], ["rec", "Recuperi"], ["mat", "Materiali"], ["firm", "Ditte"],
       ["iss", "Criticità"], ["trend", "Andamento"]];
     var testa;
     if (CANTIERI.length > 1) {
@@ -425,7 +660,8 @@ window.SUVERA_SYNC = {
       (vuoto ? "" : '<nav class="tabs" role="tablist">' + tabs.map(function (t) {
         return '<button class="tab" role="tab" data-tab="' + t[0] + '" aria-selected="' +
           (view.tab === t[0]) + '">' + t[1] +
-          (t[0] === "rec" && nsc ? '<span class="badge">' + nsc + "</span>" : "") + "</button>";
+          (t[0] === "rec" && nsc ? '<span class="badge">' + nsc + "</span>" : "") +
+          (t[0] === "mat" && nmat ? '<span class="badge">' + nmat + "</span>" : "") + "</button>";
       }).join("") + "</nav>") + "</div></header>";
   }
 
@@ -437,7 +673,7 @@ window.SUVERA_SYNC = {
         return v ? '<i class="' + c + '" style="width:' + (v / Math.max(1, t.n) * 100) + '%"></i>' : "";
       };
       return '<button class="day' + (w ? " wknd" : "") + (d === td ? " today" : "") +
-        (t.n && !t.idle ? " full" : "") + '" data-day="' + i + '" aria-pressed="' +
+        (chiusa(i) ? " lock" : (t.n && !t.idle ? " full" : "")) + '" data-day="' + i + '" aria-pressed="' +
         (view.day === i) + '"><span class="dw">' + (d === td ? "oggi" : gg(d)) +
         '</span><span class="dn">' + d.split("-")[2] + '</span><span class="bar">' +
         seg("ok", t.ok) + seg("part", t.part) + seg("ko", t.ko) + "</span></button>";
@@ -472,9 +708,23 @@ window.SUVERA_SYNC = {
         (nsc === 1 ? " recupero scaduto" : " recuperi scaduti") +
         " &mdash; vedi la scheda Recuperi</button>";
     }
+    if (chiusa(view.day)) {
+      var ci = chiusuraInfo(view.day);
+      h += '<div class="chiusa-nota"><b>Giornata chiusa' +
+        (ci && ci.u ? " da " + esc(ci.u) : "") +
+        (ci && ci.t ? " il " + esc(ci.t) : "") + ".</b> L&rsquo;esito non &egrave; pi&ugrave; " +
+        "modificabile: quello che non &egrave; stato fatto si segue dalla scheda Recuperi.</div>";
+    }
     h += hMeter(t, "avanzamento " + ggl(S.days[view.day]) + " " + dmy(S.days[view.day])) + hTiles(t) +
       '<div class="toolbar"><button data-act="print">Report della giornata (PDF)</button>' +
-      '<button data-act="csv">Esporta CSV</button></div>';
+      '<button data-act="csv">Esporta CSV</button>' +
+      (chiudibile(view.day) && t.idle === 0
+        ? '<span class="chiudibox"><input id="chi" data-act="chi" value="' + esc(utente()) +
+          '" placeholder="il tuo nome" autocomplete="name">' +
+          '<button class="chiudi" data-act="chiudi">Chiudi la giornata</button></span>' : "") +
+      (chiudibile(view.day) && t.idle > 0
+        ? '<span class="chiudi-no">Restano ' + t.idle + " righe da compilare prima di chiudere</span>" : "") +
+      "</div>";
     if (!rs.length) return h + '<div class="card empty">Nessuna attività programmata in questa data.</div>';
     var byQ = {};
     rs.forEach(function (r) { (byQ[r[R.Q]] = byQ[r[R.Q]] || []).push(r); });
@@ -490,9 +740,11 @@ window.SUVERA_SYNC = {
 
   function hRow(r) {
     var st = r[R.ST], cls = st ? "s-" + st : "s-none";
+    var bloc = chiusa(r[R.D]);
     var btn = function (v, glyph, lab) {
       return '<button class="b-' + v + '" data-act="st" data-id="' + r[R.ID] + '" data-v="' + v +
-        '" aria-pressed="' + (st === v) + '" aria-label="' + lab + '"><span class="g" aria-hidden="true">' +
+        '" aria-pressed="' + (st === v) + '" aria-label="' + lab + '"' +
+        (bloc ? " disabled" : "") + '><span class="g" aria-hidden="true">' +
         glyph + "</span>" + lab + "</button>";
     };
     var h = '<article class="card row ' + cls + '"><div class="who"><span class="name">' +
@@ -506,7 +758,19 @@ window.SUVERA_SYNC = {
       '<span class="rid">' + r[R.ID] + "</span></div>" +
       '<div class="seg">' + btn("ok", "✓", "Fatta") + btn("part", "◐", "Parziale") +
       btn("ko", "✕", "Non fatta") + btn("abs", "–", "Assente") + "</div>";
-    if (st === "ko" || st === "part") {
+    if ((st === "ko" || st === "part") && bloc) {
+      h += '<div class="detail bloccato">' +
+        (r[R.CAT] ? "<div><label>Causa</label><p>" + esc(r[R.CAT]) + "</p></div>" : "") +
+        (r[R.DESC] ? "<div><label>Cosa &egrave; successo</label><p>" + esc(r[R.DESC]) + "</p></div>" : "") +
+        (r[R.AZ] ? "<div><label>Azione</label><p>" + esc(r[R.AZ]) + "</p></div>" : "") +
+        '<div><label for="r-' + r[R.ID] + '">Recuperare entro</label>' +
+        '<input type="date" id="r-' + r[R.ID] + '" data-act="rd" data-id="' + r[R.ID] +
+        '" value="' + esc(r[R.RD]) + '"></div>' +
+        (r[R.RS] === "ok"
+          ? '<button class="recdone" data-act="rec-no" data-id="' + r[R.ID] + '">Recuperato &mdash; annulla</button>'
+          : '<button class="recdone on" data-act="rec-ok" data-id="' + r[R.ID] + '">Segna come recuperato</button>') +
+        "</div>";
+    } else if (st === "ko" || st === "part") {
       h += '<div class="detail"><div><label for="c-' + r[R.ID] + '">Causa</label>' +
         '<select id="c-' + r[R.ID] + '" data-act="cat" data-id="' + r[R.ID] + '"><option value="">— scegli —</option>' +
         CATS.map(function (c) {
@@ -522,7 +786,101 @@ window.SUVERA_SYNC = {
         '<input type="date" id="r-' + r[R.ID] + '" data-act="rd" data-id="' + r[R.ID] +
         '" value="' + esc(r[R.RD]) + '"></div></div>';
     }
+    h += hMat(r);
     return h + "</article>";
+  }
+
+  function hMat(r) {
+    var m = mat(r) || {}, st = m.st || "";
+    var b = function (v, lab) {
+      return '<button class="m-' + v + '" data-act="mat" data-id="' + r[R.ID] + '" data-v="' + v +
+        '" aria-pressed="' + (st === v) + '">' + lab + "</button>";
+    };
+    var h = '<div class="matbox"><span class="matlab">Materiale</span><div class="matseg">' +
+      b("ok", "In cantiere") + b("arr", "In arrivo") + b("no", "Da ordinare") + b("na", "Non serve") +
+      "</div>";
+    if (st === "no") {
+      h += '<div class="detail"><div class="due">' +
+        '<div><label for="mf-' + r[R.ID] + '">WBS</label>' +
+        '<select id="mf-' + r[R.ID] + '" data-act="m-fase" data-id="' + r[R.ID] + '">' +
+        '<option value="">— scegli —</option>' + WBS.map(function (w) {
+          return '<option value="' + w[0] + '"' + (m.fase === w[0] ? " selected" : "") + ">" +
+            w[0] + " — " + esc(w[1]) + "</option>";
+        }).join("") + "</select></div>" +
+        '<div><label for="me-' + r[R.ID] + '">Consegna entro</label>' +
+        '<input type="date" id="me-' + r[R.ID] + '" data-act="m-entro" data-id="' + r[R.ID] +
+        '" value="' + esc(m.entro || "") + '"></div></div>' +
+        '<div><label for="md-' + r[R.ID] + '">Descrizione materiale</label>' +
+        '<textarea id="md-' + r[R.ID] + '" data-act="m-desc" data-id="' + r[R.ID] +
+        '" placeholder="marca, tipo, misura">' + esc(m.desc || "") + "</textarea></div>" +
+        '<div class="due"><div><label for="mq-' + r[R.ID] + '">Quantit&agrave;</label>' +
+        '<input id="mq-' + r[R.ID] + '" data-act="m-qta" data-id="' + r[R.ID] +
+        '" inputmode="decimal" value="' + esc(m.qta || "") + '"></div>' +
+        '<div><label for="mu-' + r[R.ID] + '">Unit&agrave; di misura</label>' +
+        '<input id="mu-' + r[R.ID] + '" data-act="m-um" data-id="' + r[R.ID] +
+        '" value="' + esc(m.um || "") + '" placeholder="bancali, mq, kg"></div></div>' +
+        '<button class="rdabtn" data-act="rda-one" data-id="' + r[R.ID] +
+        '">Genera RDA per questo materiale</button></div>';
+    } else if (st === "arr" || st === "ok") {
+      h += '<p class="matnote">' + (st === "ok" ? "Materiale disponibile in cantiere."
+        : "Ordinato" + (m.entro ? ", in arrivo entro il " + dmy(m.entro) : ", in attesa di consegna") +
+          ".") + "</p>";
+    }
+    return h + "</div>";
+  }
+
+  /* ------------------------------------------------ materiali */
+  function hMatTab() {
+    var no = daOrdinare();
+    var arr = [], ok = [];
+    Object.keys(S.mat).forEach(function (k) {
+      var m = S.mat[k];
+      var r = null;
+      for (var i = 0; i < S.rows.length; i++) if (lavKey(S.rows[i]) === k) { r = S.rows[i]; break; }
+      if (!r) return;
+      if (m.st === "arr") arr.push({ m: m, r: r });
+      else if (m.st === "ok") ok.push({ m: m, r: r });
+    });
+    var h = '<h2 class="sectionhead">Materiali</h2>' +
+      '<div class="tiles"><div class="tile ko"><b>' + no.length + "</b><span>Da ordinare</span></div>" +
+      '<div class="tile part"><b>' + arr.length + "</b><span>In arrivo</span></div>" +
+      '<div class="tile ok"><b>' + ok.length + "</b><span>In cantiere</span></div>" +
+      '<div class="tile idle"><b>' + Object.keys(S.mat).length + "</b><span>Verificati</span></div></div>";
+
+    if (!Object.keys(S.mat).length) {
+      return h + '<div class="card empty">Nessuna verifica registrata. Il materiale si segna ' +
+        "dalla scheda della lavorazione, nella Giornata.</div>";
+    }
+    if (no.length) {
+      h += '<div class="rdanum"><label for="rdan">Numero RDA</label>' +
+        '<input id="rdan" data-act="rdan" value="' + esc(S.rdaN || "") +
+        '" placeholder="es. 02_alf"><button data-act="rda-all">Genera RDA con tutti i ' +
+        no.length + " materiali</button></div>";
+      h += '<h3 class="rechead ko">Da ordinare</h3>';
+      no.forEach(function (x) { h += hMatCard(x.r, x.m, "late"); });
+    }
+    if (arr.length) {
+      h += '<h3 class="rechead">Ordinati, in arrivo</h3>';
+      arr.forEach(function (x) { h += hMatCard(x.r, x.m, "soon"); });
+    }
+    if (ok.length) {
+      h += '<h3 class="rechead ok">Disponibili in cantiere</h3>';
+      ok.forEach(function (x) { h += hMatCard(x.r, x.m, "done"); });
+    }
+    return h;
+  }
+
+  function hMatCard(r, m, cls) {
+    var q = [m.qta, m.um].filter(Boolean).join(" ");
+    return '<article class="card rec ' + cls + '"><div class="who"><span class="name">' +
+      esc(S.dit[r[R.F]]) + "</span>" +
+      (m.fase ? '<span class="firm">WBS ' + esc(m.fase) + "</span>" : "") + "</div>" +
+      '<div class="task">' + esc(m.desc || S.att[r[R.A]]) + "</div>" +
+      '<div class="zoneline"><span class="zone">' + esc(S.zon[r[R.Z]]) + "</span>" +
+      (q ? '<span class="tag">' + esc(q) + "</span>" : "") +
+      (m.entro ? '<span class="tag">entro ' + dmy(m.entro) + "</span>" : "") +
+      (m.rda ? '<span class="tag ok">RDA ' + esc(m.rda) + "</span>" : "") + "</div>" +
+      '<p class="promessa">' + esc(S.att[r[R.A]]) + "</p></article>";
   }
 
   /* ------------------------------------------------ recuperi */
@@ -715,6 +1073,88 @@ window.SUVERA_SYNC = {
         : "") + "</div>";
   }
 
+  /* --- modulo RDA --- */
+  var rdaSel = null;      // null = tutti i materiali da ordinare, altrimenti una chiave
+
+  function hRda() {
+    var voci = daOrdinare();
+    if (rdaSel) voci = voci.filter(function (x) { return x.k === rdaSel; });
+    var oggiIt = oggi().split("-").reverse().join("/");
+    var entro = voci.map(function (x) { return x.m.entro; }).filter(Boolean).sort()[0];
+    var righe = Math.min(26, Math.max(voci.length + 3, 9));
+    var body = "";
+    for (var i = 0; i < righe; i++) {
+      var v = voci[i];
+      body += "<tr><td>" + (v ? esc(v.m.fase || "") : "&nbsp;") + "</td><td>" +
+        (v ? esc(v.m.desc || S.att[v.r[R.A]]) : "") + "</td><td>" +
+        (v ? esc(v.m.um || "") : "") + "</td><td>" + (v ? esc(v.m.qta || "") : "") +
+        "</td><td></td><td></td><td></td></tr>";
+    }
+    var campo = function (l, v) {
+      return '<div class="rf"><span>' + l + "</span><b>" + esc(v || "") + "</b></div>";
+    };
+    return '<div id="rda">' +
+      '<div class="rdahead"><h1>Richiesta di acquisto</h1>' +
+      "<p>Da consegnare all&rsquo;ufficio acquisti</p></div>" +
+      '<div class="rdatop">' +
+      "<div>" + campo("RDA n&deg;", S.rdaN || RDA.numero || "") +
+      campo("Trasmesso a mezzo", RDA.mezzo || "e-mail") +
+      campo("C.a.", "Ufficio Acquisti") + "</div>" +
+      "<div>" + campo("Commessa", RDA.commessa || "") + campo("Data", oggiIt) +
+      campo("Responsabile", RDA.responsabile || "") + "</div>" +
+      "<div>" + campo("Cantiere", NOME) + campo("Recapito", RDA.recapito || "") +
+      campo("Priorit&agrave;", RDA.priorita || "Normale") + "</div>" +
+      "</div>" +
+      '<div class="rdaind"><div><h2>Indirizzo cantiere</h2><p>' +
+      esc(RDA.indirizzo || "") + "<br>" + esc(RDA.citta || "") + "</p></div>" +
+      "<div><h2>Indirizzo consegna materiale</h2><p>" +
+      esc(RDA.consegna_indirizzo || RDA.indirizzo || "") + "<br>" +
+      esc(RDA.consegna_citta || RDA.citta || "") + "</p></div>" +
+      "<div><h2>Consegna entro</h2><p>" +
+      (entro ? entro.split("-").reverse().join("/") : "&mdash;") + "</p></div></div>" +
+      '<table class="rdatab"><thead><tr><th>WBS</th><th>Descrizione materiale</th>' +
+      "<th>um</th><th>Quantit&agrave;</th><th>Unitario</th><th>Sconto</th><th>Imp. totale</th>" +
+      "</tr></thead><tbody>" + body + "</tbody></table>" +
+      '<div class="rdafirme"><div>Il richiedente &mdash; ' + esc(RDA.richiedente || "") +
+      "</div><div>Visto del responsabile</div></div>" +
+      '<div class="rdaris"><h2>Riservato all&rsquo;ufficio acquisti</h2>' +
+      "<div><span>Eseguito da</span><span>Protocollo STR</span><span>Data</span></div>" +
+      "<p>Annotazioni:</p></div></div>";
+  }
+
+  var stampaInCorso = false;
+  function stampaRda(chiave) {
+    if (stampaInCorso) return;
+    stampaInCorso = true;
+    rdaSel = chiave || null;
+    document.body.classList.add("print-rda");
+    render(true);
+    setTimeout(function () {
+      try { window.print(); } catch (e) { /* niente */ }
+      stampaInCorso = false;
+    }, 80);
+  }
+  function fineStampa() {
+    if (!document.body.classList.contains("print-rda")) return;
+    document.body.classList.remove("print-rda");
+    rdaSel = null;
+    render(true);
+  }
+  function stampaReport() {
+    if (stampaInCorso) return;
+    stampaInCorso = true;
+    if (document.body.classList.contains("print-rda")) {
+      document.body.classList.remove("print-rda");
+      rdaSel = null;
+      render(true);
+    }
+    setTimeout(function () {
+      try { window.print(); } catch (e) { /* niente */ }
+      stampaInCorso = false;
+    }, 60);
+  }
+  window.addEventListener("afterprint", fineStampa);
+
   /* ------------------------------------------------ shell */
   function render(keepScroll) {
     var y = window.scrollY;
@@ -725,6 +1165,7 @@ window.SUVERA_SYNC = {
       return;
     }
     var body = view.tab === "day" ? hDay() : view.tab === "rec" ? hRec() :
+      view.tab === "mat" ? hMatTab() :
       view.tab === "firm" ? hFirm() : view.tab === "iss" ? hIss() : hTrend();
     app.innerHTML = hTop() + '<main class="wrap">' +
       (readOnly
@@ -739,7 +1180,8 @@ window.SUVERA_SYNC = {
             "da solo e lo vedono tutti quelli che hanno il link, entro pochi secondi."
           : "Generato dal programma bisettimanale del capocantiere. Quello che compili resta su " +
             "questo telefono. A fine giornata premi <b>Invia riepilogo</b>.") +
-      "</p></main>" + (view.tab === "day" ? hReport() : "") + hSaveBar() +
+      "</p></main>" + (view.tab === "day" ? hReport() : "") +
+      (Object.keys(S.mat).length ? hRda() : "") + hSaveBar() +
       (saved ? '<div class="toast">' + (shared
         ? "Salvato &mdash; avanzamento aggiornato per tutti"
         : "Riepilogo pronto per l&rsquo;invio") + "</div>" : "");
@@ -760,6 +1202,7 @@ window.SUVERA_SYNC = {
     if (a === "st") {
       if (readOnly) return;
       var r = byId(el.dataset.id); if (!r) return;
+      if (chiusa(r[R.D])) return;
       r[R.ST] = r[R.ST] === el.dataset.v ? "" : el.dataset.v;
       if (r[R.ST] !== "ko" && r[R.ST] !== "part") { r[R.CAT] = ""; r[R.DESC] = ""; r[R.AZ] = ""; }
       dirty++; touch(r); render(true);
@@ -774,7 +1217,36 @@ window.SUVERA_SYNC = {
       dirty++; touch(rr); render(true);
     } else if (a === "table") { view.table = !view.table; render(true); }
     else if (a === "csv") { csv(); }
-    else if (a === "print") { window.print(); }
+    else if (a === "print") { stampaReport(); }
+    else if (a === "mat") {
+      if (readOnly) return;
+      var rm = byId(el.dataset.id); if (!rm) return;
+      var cur = (mat(rm) || {}).st || "";
+      matSet(rm, { st: cur === el.dataset.v ? "" : el.dataset.v });
+      dirty++; touch(rm); render(true);
+    }
+    else if (a === "rda-one") {
+      var rr2 = byId(el.dataset.id); if (!rr2) return;
+      stampaRda(lavKey(rr2));
+    }
+    else if (a === "rda-all") { stampaRda(null); }
+    else if (a === "chiudi") {
+      if (readOnly || !chiudibile(view.day)) return;
+      var campoChi = document.getElementById("chi");
+      var nome = (campoChi ? campoChi.value : utente()).trim();
+      if (!nome) {
+        if (campoChi) { campoChi.classList.add("manca"); campoChi.focus(); }
+        return;
+      }
+      setUtente(nome);
+      var ora = new Date();
+      S.closed[S.days[view.day]] = {
+        u: nome,
+        t: ("0" + ora.getDate()).slice(-2) + "/" + ("0" + (ora.getMonth() + 1)).slice(-2) +
+          " alle " + ("0" + ora.getHours()).slice(-2) + ":" + ("0" + ora.getMinutes()).slice(-2)
+      };
+      dirty++; touch(null); render(true);
+    }
     else if (a === "wa") { sendReport(); }
     else if (a === "save") { save(); }
   });
@@ -786,11 +1258,23 @@ window.SUVERA_SYNC = {
       return;
     }
     if (readOnly) return;
-    var a = el.dataset.act, r = byId(el.dataset.id); if (!r) return;
-    if (a === "cat") { r[R.CAT] = el.value; dirty++; }
-    else if (a === "desc") { r[R.DESC] = el.value; dirty++; }
-    else if (a === "az") { r[R.AZ] = el.value; dirty++; }
+    var a = el.dataset.act;
+    if (a === "rdan") { S.rdaN = el.value; SY.tNum = true; dirty++; touch(null); return; }
+    var r = byId(el.dataset.id); if (!r) return;
+    if (a === "cat" || a === "desc" || a === "az") {
+      if (chiusa(r[R.D])) return;
+      if (a === "cat") r[R.CAT] = el.value;
+      else if (a === "desc") r[R.DESC] = el.value;
+      else r[R.AZ] = el.value;
+      dirty++;
+    }
     else if (a === "rd") { r[R.RD] = el.value; dirty++; touch(r); render(true); return; }
+    else if (a.indexOf("m-") === 0) {
+      var campo = { "m-fase": "fase", "m-desc": "desc", "m-qta": "qta",
+        "m-um": "um", "m-entro": "entro" }[a];
+      if (campo) { var p = {}; p[campo] = el.value; matSet(r, p); dirty++; touch(r); }
+      return;
+    }
     touch(r);
     var bar = document.querySelector(".savebar");
     if (bar) {
@@ -921,7 +1405,7 @@ window.SUVERA_SYNC = {
     });
     var iss = {};
     S.issues.forEach(function (p) { iss[p.id] = p.st; });
-    return { v: 1, s: rle(s), t: texts, i: iss };
+    return { v: 1, s: rle(s), t: texts, i: iss, m: S.mat, n: S.rdaN || "", c: S.closed };
   }
 
   function unpack(p, skip) {
@@ -943,6 +1427,18 @@ window.SUVERA_SYNC = {
       r[R.RS] = t ? (t[5] || "") : "";
     });
     S.issues.forEach(function (q) { if (p.i && p.i[q.id]) q.st = p.i[q.id]; });
+    if (p.m) {
+      var nuovo = {};
+      Object.keys(p.m).forEach(function (k) { if (!SY.tMat[k]) nuovo[k] = p.m[k]; });
+      Object.keys(SY.tMat).forEach(function (k) { if (S.mat[k]) nuovo[k] = S.mat[k]; });
+      S.mat = nuovo;
+    }
+    if (typeof p.n === "string" && !SY.tNum) S.rdaN = p.n;
+    if (p.c) {
+      Object.keys(p.c).forEach(function (d) {
+        if (!S.closed[d] || typeof S.closed[d] !== "object") S.closed[d] = p.c[d];
+      });
+    }
   }
 
   function api(path, opts) {
@@ -986,6 +1482,7 @@ window.SUVERA_SYNC = {
     if (!SY.on || SY.busy) { SY.pending = true; return; }
     SY.busy = true; SY.pending = false; SY.state = "invio"; chip();
     var sending = SY.touched; SY.touched = {};
+    var sendMat = SY.tMat, sendNum = SY.tNum; SY.tMat = {}; SY.tNum = false;
     api("suvera_stato?cantiere=eq." + encodeURIComponent(CANTIERE) + "&rev=eq." + SY.rev, {
       method: "PATCH",
       headers: { Prefer: "return=representation" },
@@ -996,6 +1493,8 @@ window.SUVERA_SYNC = {
         SY.busy = false;
         if (!rows || !rows.length) {          // qualcun altro ha scritto per primo
           Object.keys(sending).forEach(function (k) { SY.touched[k] = 1; });
+          Object.keys(sendMat).forEach(function (k) { SY.tMat[k] = 1; });
+          SY.tNum = SY.tNum || sendNum;
           syncPull(function () { syncPush(); });
           return;
         }
@@ -1006,6 +1505,8 @@ window.SUVERA_SYNC = {
       .catch(function () {
         SY.busy = false; SY.state = "ko";
         Object.keys(sending).forEach(function (k) { SY.touched[k] = 1; });
+        Object.keys(sendMat).forEach(function (k) { SY.tMat[k] = 1; });
+        SY.tNum = SY.tNum || sendNum;
         chip();
       });
   }
@@ -1128,6 +1629,8 @@ window.SUVERA_SYNC = {
     }
     var idle = rs.filter(function (r) { return !r[R.ST]; });
     if (idle.length) L.push("", "Righe non ancora compilate: " + idle.length);
+    var ci2 = chiusuraInfo(view.day);
+    if (ci2 && ci2.u) L.push("", "Giornata chiusa da " + ci2.u + (ci2.t ? " il " + ci2.t : "") + ".");
     return L.join("\n");
   }
 
